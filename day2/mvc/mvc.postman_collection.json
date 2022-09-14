@@ -1,0 +1,996 @@
+{
+	"info": {
+		"_postman_id": "c3cf6c98-e24a-4d66-a24c-2469c9469f55",
+		"name": "mvc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19717362"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "books",
+					"item": [
+						{
+							"name": "Get All Books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get All Books",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:29:20 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "404"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"tittle\": \"Mastering Backend\",\n            \"author\": \"Komodo\",\n            \"isbn\": \"3459797264\",\n            \"created_at\": \"2022-09-14T21:28:55.10377+07:00\",\n            \"updated_at\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": 2,\n            \"tittle\": \"Golang Advanced\",\n            \"author\": \"Alterra\",\n            \"isbn\": \"3459797264\",\n            \"created_at\": \"2022-09-14T21:29:17.074658+07:00\",\n            \"updated_at\": \"0001-01-01T00:00:00Z\"\n        }\n    ],\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\",\n    \"total\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "Create New Book",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Tittle\": \"Golang Advanced\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 Created - Create New Book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Mastering Backend\",\n    \"Author\": \"Komodo\",\n    \"isbn\": \"3459797264\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 12:30:05 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "234"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"tittle\": \"Mastering Backend\",\n        \"author\": \"Komodo\",\n        \"isbn\": \"3459797264\",\n        \"created_at\": \"2022-09-14T19:30:05.860708+07:00\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\"\n    },\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Book By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get Book by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:30:07 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "233"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"tittle\": \"Golang Advanced\",\n        \"author\": \"Alterra\",\n        \"isbn\": \"3459797264\",\n        \"created_at\": \"2022-09-14T21:29:17.074658+07:00\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\"\n    },\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "500 Internal Server Error - Book with the given ID not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:31:16 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"book with the given id not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Book by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Tittle\": \"Mastering Golang\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264678\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "500 Internal Server Error - Book with the given ID not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Mastering Backend Dev\",\n    \"Author\": \"Komodo Dragon\",\n    \"isbn\": \"3459797264678\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:32:07 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "76"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": {},\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								},
+								{
+									"name": "200 OK - Update Book by ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Mastering Golang\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264678\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:32:58 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "249"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"tittle\": \"Mastering Golang\",\n        \"author\": \"Alterra\",\n        \"isbn\": \"3459797264678\",\n        \"created_at\": \"2022-09-14T21:29:17.074658+07:00\",\n        \"updated_at\": \"2022-09-14T21:32:58.358518+07:00\"\n    },\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Book by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Delete Book by ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:33:27 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "233"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"tittle\": \"Golang Advanced\",\n        \"author\": \"Alterra\",\n        \"isbn\": \"3459797264\",\n        \"created_at\": \"2022-09-14T21:29:17.074658+07:00\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\"\n    },\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Create New User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullname\": \"Rizky\",\n    \"email\": \"rizky@gmail.com\",\n    \"password\": \"Rahasia123\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 Created - Create New User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fullname\": \"Achmad Rizky Syahrani\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia123\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:33:36 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "221"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"fullname\": \"Achmad Rizky Syahrani\",\n        \"email\": \"riskiamad@gmail.com\",\n        \"created_at\": \"2022-09-14T22:33:36.065+07:00\",\n        \"updated_at\": \"2022-09-14T22:33:36.065+07:00\"\n    },\n    \"message\": \"user has created\",\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get user by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:34:32 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "238"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"fullname\": \"Achmad Rizky Syahrani\",\n        \"email\": \"riskiamad@gmail.com\",\n        \"created_at\": \"2022-09-14T22:33:36.065+07:00\",\n        \"updated_at\": \"2022-09-14T22:33:36.065+07:00\"\n    },\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "500 Internal Server Error - Record not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:35:14 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "92"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"record not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get All Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get All Users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:44:36 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "556"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"fullname\": \"Achmad Rizky Syahrani\",\n            \"email\": \"riskiamad@gmail.com\",\n            \"created_at\": \"2022-09-14T22:44:10.197+07:00\",\n            \"updated_at\": \"2022-09-14T22:44:10.197+07:00\"\n        },\n        {\n            \"id\": 3,\n            \"fullname\": \"Achmad Rizky Syahrani\",\n            \"email\": \"riskiamad@gmail.com\",\n            \"created_at\": \"2022-09-14T22:44:15.611+07:00\",\n            \"updated_at\": \"2022-09-14T22:44:15.611+07:00\"\n        },\n        {\n            \"id\": 4,\n            \"fullname\": \"Rizky\",\n            \"email\": \"rizky@gmail.com\",\n            \"created_at\": \"2022-09-14T22:44:31.53+07:00\",\n            \"updated_at\": \"2022-09-14T22:44:31.53+07:00\"\n        }\n    ],\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\",\n    \"total\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User by ID",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullname\": \"Achmad Rizky\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Update user by ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fullname\": \"Achmad Rizky\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:37:29 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "212"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"fullname\": \"Achmad Rizky\",\n        \"email\": \"riskiamad@gmail.com\",\n        \"created_at\": \"2022-09-14T22:33:36.065+07:00\",\n        \"updated_at\": \"2022-09-14T22:37:29.355+07:00\"\n    },\n    \"message\": \"user has updated\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "500 Internal Server Error - record not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fullname\": \"Achmad Rizky\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:37:48 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "92"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"record not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "500 Internal Server Error - Record not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:43:16 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"user with the given ID not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								},
+								{
+									"name": "200 OK - Book has deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:43:49 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "50"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"book has deleted\",\n    \"status\": \"success\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
