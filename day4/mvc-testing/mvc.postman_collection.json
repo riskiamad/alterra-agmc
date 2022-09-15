@@ -1,0 +1,1663 @@
+{
+	"info": {
+		"_postman_id": "c3cf6c98-e24a-4d66-a24c-2469c9469f55",
+		"name": "mvc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19717362"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "books",
+					"item": [
+						{
+							"name": "Get All Books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get All Books",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:29:20 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "404"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"tittle\": \"Mastering Backend\",\n            \"author\": \"Komodo\",\n            \"isbn\": \"3459797264\",\n            \"created_at\": \"2022-09-14T21:28:55.10377+07:00\",\n            \"updated_at\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": 2,\n            \"tittle\": \"Golang Advanced\",\n            \"author\": \"Alterra\",\n            \"isbn\": \"3459797264\",\n            \"created_at\": \"2022-09-14T21:29:17.074658+07:00\",\n            \"updated_at\": \"0001-01-01T00:00:00Z\"\n        }\n    ],\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\",\n    \"total\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "Create New Book",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Tittle\": \"Golang Advanced\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 Created - Create New Book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Golang Advanced\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:27:48 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "216"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"tittle\": \"Golang Advanced\",\n        \"author\": \"Alterra\",\n        \"isbn\": \"3459797264\",\n        \"created_at\": \"2022-09-15T11:27:48.062831+07:00\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\"\n    },\n    \"message\": \"book has created\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "401 Unauthorized - jwt invalid or expired",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Golang Advanced\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:29:37 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "37"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"invalid or expired jwt\"\n}"
+								},
+								{
+									"name": "422 Unprocessable Entity - Body request is not valid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:51:37 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "181"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": {\n        \"BookInput.Author\": \"Author is required\",\n        \"BookInput.ISBN\": \"ISBN is required\",\n        \"BookInput.Tittle\": \"Tittle is required\"\n    },\n    \"message\": \"body request not valid\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Book By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get Book by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:30:07 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "233"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"tittle\": \"Golang Advanced\",\n        \"author\": \"Alterra\",\n        \"isbn\": \"3459797264\",\n        \"created_at\": \"2022-09-14T21:29:17.074658+07:00\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\"\n    },\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "500 Internal Server Error - Book with the given ID not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 14:31:16 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"book with the given id not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Book by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Tittle\": \"Mastering Golang\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264678\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "500 Internal Server Error - Book with the given id not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Mastering Golang\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264678\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:31:09 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"book with the given id not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								},
+								{
+									"name": "200 OK - Update book by id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Mastering Golang\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264678\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:31:46 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "232"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"tittle\": \"Mastering Golang\",\n        \"author\": \"Alterra\",\n        \"isbn\": \"3459797264678\",\n        \"created_at\": \"2022-09-15T11:27:48.062831+07:00\",\n        \"updated_at\": \"2022-09-15T11:31:46.404554+07:00\"\n    },\n    \"message\": \"book has updated\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "401 Unauthorized - jwt invalid or expired",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"Tittle\": \"Mastering Golang\",\n    \"Author\": \"Alterra\",\n    \"isbn\": \"3459797264678\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:32:06 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "37"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"invalid or expired jwt\"\n}"
+								},
+								{
+									"name": "422 Unprocessable Entity - Body request is not valid",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:52:33 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "181"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": {\n        \"BookInput.Author\": \"Author is required\",\n        \"BookInput.ISBN\": \"ISBN is required\",\n        \"BookInput.Tittle\": \"Tittle is required\"\n    },\n    \"message\": \"body request not valid\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Book by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "500 Internal Server Error - Book with the given id not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:32:42 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"book with the given id not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								},
+								{
+									"name": "401 Unauthorized - jwt invalid or expired",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:33:10 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "37"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"invalid or expired jwt\"\n}"
+								},
+								{
+									"name": "200 OK - Book with the given id deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:33:53 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "216"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"tittle\": \"Golang Advanced\",\n        \"author\": \"Alterra\",\n        \"isbn\": \"3459797264\",\n        \"created_at\": \"2022-09-15T11:27:48.062831+07:00\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\"\n    },\n    \"message\": \"book has deleted\",\n    \"status\": \"success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Create New User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullname\": \"Rizky\",\n    \"email\": \"rizky@gmail.com\",\n    \"password\": \"Rahasia123\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 Created - Create New User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fullname\": \"Achmad Rizky Syahrani\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia123\"\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 15:33:36 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "221"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"fullname\": \"Achmad Rizky Syahrani\",\n        \"email\": \"riskiamad@gmail.com\",\n        \"created_at\": \"2022-09-14T22:33:36.065+07:00\",\n        \"updated_at\": \"2022-09-14T22:33:36.065+07:00\"\n    },\n    \"message\": \"user has created\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "422 Unprocessable Entity - Body Request is not valid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"email\": \"rizky@gmail\"\n\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:53:21 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "198"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": {\n        \"UserInput.Email\": \"Email is not valid email\",\n        \"UserInput.Fullname\": \"Fullname is required\",\n        \"UserInput.Password\": \"Password is required\"\n    },\n    \"message\": \"body request not valid\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get user by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:36:17 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "240"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"fullname\": \"Achmad Rizky\",\n        \"email\": \"riskiamad@gmail.com\",\n        \"token\": \"\",\n        \"created_at\": \"2022-09-14T22:44:10.197+07:00\",\n        \"updated_at\": \"2022-09-15T11:13:17.086+07:00\"\n    },\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "500 Internal Server Error - User with the given id not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:36:34 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "92"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"record not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get All Users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK - Get all users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:35:33 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "405"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"fullname\": \"Achmad Rizky\",\n            \"email\": \"riskiamad@gmail.com\",\n            \"token\": \"\",\n            \"created_at\": \"2022-09-14T22:44:10.197+07:00\",\n            \"updated_at\": \"2022-09-15T11:13:17.086+07:00\"\n        },\n        {\n            \"id\": 4,\n            \"fullname\": \"Rizky\",\n            \"email\": \"rizky@gmail.com\",\n            \"token\": \"\",\n            \"created_at\": \"2022-09-14T22:44:31.53+07:00\",\n            \"updated_at\": \"2022-09-14T22:44:31.53+07:00\"\n        }\n    ],\n    \"message\": \"success to fetch data from server\",\n    \"status\": \"success\",\n    \"total\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullname\": \"Achmad Rizky\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia12\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 Ok - Update user by id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fullname\": \"Achmad Rizky\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia12\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:38:06 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "223"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"fullname\": \"Achmad Rizky\",\n        \"email\": \"riskiamad@gmail.com\",\n        \"token\": \"\",\n        \"created_at\": \"2022-09-14T22:44:10.197+07:00\",\n        \"updated_at\": \"2022-09-15T11:38:06.597+07:00\"\n    },\n    \"message\": \"user has updated\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "401 Unauthorized - Update another user is not allowed",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fullname\": \"Achmad Rizky\",\n    \"email\": \"riskiamad@gmail.com\",\n    \"password\": \"Rahasia12\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:39:07 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "73"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"you are not allowed to edit another user\",\n    \"status\": \"failed\"\n}"
+								},
+								{
+									"name": "422 Unprocessable Entity - Body request is not valid",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \n    \"email\": \"riskiamad@gmail\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:54:12 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "198"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": {\n        \"UserInput.Email\": \"Email is not valid email\",\n        \"UserInput.Fullname\": \"Fullname is required\",\n        \"UserInput.Password\": \"Password is required\"\n    },\n    \"message\": \"body request not valid\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "401 Unauthorized - Delete another user is not allowed",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:40:08 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "75"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"you are not allowed to delete another user\",\n    \"status\": \"failed\"\n}"
+								},
+								{
+									"name": "200 OK - Delete User by ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/api/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:40:35 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "50"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"user has deleted\",\n    \"status\": \"success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "Login User",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"",
+											"    let response = pm.response.json();",
+											"    pm.environment.set(\"bearer_token\", response.data.token);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"riskiamad@gmail.com\",\n    \"password\":\"Rahasia123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 Ok - Login credential match",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"riskiamad@gmail.com\",\n    \"password\":\"Rahasia123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/auth/login",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:19:37 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "371"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"fullname\": \"Achmad Rizky\",\n        \"email\": \"riskiamad@gmail.com\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NjMyMTkxNzcsInVzZXJJRCI6Mn0.seK60pvB__rrHwuzWjqIKPdSpZAupeUQlnBjiiB_WY8\",\n        \"created_at\": \"2022-09-14T22:44:10.197+07:00\",\n        \"updated_at\": \"2022-09-15T11:13:17.086+07:00\"\n    },\n    \"message\": \"the credential match\",\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "500 Internal Server Error - Credential not match",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"riskiamad@gmail.com\",\n    \"password\":\"Rahasia12\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/auth/login",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:34:34 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "92"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"record not found\",\n    \"message\": \"failed to fetch data from server\",\n    \"status\": \"failed\"\n}"
+								},
+								{
+									"name": "422 Unprocessable Entity - Body request not valid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"riskiamad@gmail\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/auth/login",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 04:50:54 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "168"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": {\n        \"UserLoginRequest.Email\": \"Email is not valid email\",\n        \"UserLoginRequest.Password\": \"Password is required\"\n    },\n    \"message\": \"body request not valid\",\n    \"status\": \"failed\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
